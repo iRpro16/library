@@ -2,7 +2,6 @@
 let myLibrary = []
 const cardCont = document.querySelector('.card-container');
 const modal = document.querySelector('.modal');
-
 // Book Constructor 
 function Book(title, author, pages, read) {
     this.title = title
@@ -13,6 +12,7 @@ function Book(title, author, pages, read) {
 
 // Add book to library array
 function addBookToLibrary() {
+    modal.style.display = "none";
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
@@ -29,18 +29,17 @@ function displayObject() {
     const para = document.createElement("p");
     para.classList.add('card');
     for (let book of myLibrary) {
-        para.innerHTML = book.author + " " + book.title + " " + book.pages
+        para.innerHTML = book.author + " " + book.title + " " + book.pages;
     };
     cardCont.appendChild(para);
 }
 
-// Displays Modal
 function displayModal() {
-    modal.showModal();
+    modal.style.display = "block"
 }
 
-// Close Modal
 function closeModal() {
-    modal.close();
+    modal.style.display = "none"
 }
+
 

@@ -3,61 +3,61 @@
     padding: 0;
 }
 
-.card {
-    background-color: aqua;
-    height: 250px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.modal {
-    padding: 1em;
-    max-width: 50ch;
-}
-
-input {
-    width: 100px;
-    height: 20px;
-}
-
-#submit {
-    width: 100px;
+.container {
+    height: 100vh;
+    width: auto;
 }
 
 .header {
-    height: 15%;
-    background-color: lightblue;
-    border-bottom: 2px solid black;
-}
-
-.container {
- height: 100vh;
- width: auto;
-}
-
-.display-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 85%;
+    height: 10%;
+    background-color: lightgray;
 }
 
-.card-container {
+.main-container {
+    width: 100%;
     height: 90%;
-    width: 90%;
+    background-color:aliceblue;
 }
 
-#myBtn {
+.card {
+    background-color: aqua;
+    height: 100px;
     width: 100px;
-    height: 30px;
 }
 
-dialog {
+.modal {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+    border: 2px solid black;
+    z-index: 1;
+}
+
+.modal-container {
+    background-color: white;
     position: fixed;
     top: 50%;
-    left: 40%;
+    left: 50%;
 }
 
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    width: 10px;
+    height: auto;
+}
+
+.add {
+    width: 100px;
+    height: 25px;
+}
+
+#modal {
+    display: none;
+}

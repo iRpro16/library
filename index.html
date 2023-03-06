@@ -8,34 +8,34 @@
     <script src="main.js" defer></script>
     <title>Library</title>
 </head>
-<body>   
-
+<body> 
     <div class="container">
+    <header class="header">
+        <button onclick="displayModal()" class="add-book">+</button>
 
-        <dialog class="modal">
-            <button onclick="closeModal()" class="close">x</button>
-            <form class="form" method="dialog">
-               <input type="text" id="author" placeholder="Author" required>
-               <input type="text" id="title" placeholder="Title" required>
-               <input type="text" id="pages" placeholder="Pages" required>
-               <input type="text" id="read" placeholder="Read">
-            <button onclick="addBookToLibrary()" id="submit">Submit</button>
-            </form>
-        </dialog>
+    </header>
 
-    <div class="header">
-        <button onclick="displayModal()" id="myBtn">Add Book</button>
-
-    </div>
-
-    <div class="display-container"> 
+    <main class="main-container">
+        
         <div class="card-container"></div>
 
-    
+    </main>
+
     </div>
 
-</div>
-
+    <div class="modal-container">
+        <form action="#" id="modal" class="modal">
+            <button onclick="closeModal()" class="close">x</button>
+            <div class="input-container">
+            <input type="text" id="author" placeholder="Author" required>
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="pages" placeholder="Pages" required>
+            <input type="text" id="read" placeholder="Read">
+            </div>
+            <button onclick="addBookToLibrary()" class="add">Add</button>
+        </form>
+        </div>
     
+
 </body>
 </html>
