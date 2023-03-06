@@ -27,6 +27,7 @@
     background-color: aqua;
     height: 300px;
     width: 200px;
+    text-align: center;
 }
 
 .modal {
@@ -49,8 +50,6 @@
 
 .card-container {
     display: grid;
-    justify-content: center;
-    align-items: center;
     gap: 20px;
     width: 90%;
     height: 90%;

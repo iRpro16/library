@@ -25,10 +25,11 @@ function addBookToLibrary() {
 
 // Dispay object on screen
 function displayObject() {
-    const para = document.createElement("p");
+    modal.style.display = "none"
+    const para = document.createElement("div");
     para.classList.add('card');
     for (let book of myLibrary) {
-        para.innerHTML = book.author + " " + book.title + " " + book.pages;
+        para.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>`
     };
     cardCont.appendChild(para);
 }
