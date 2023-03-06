@@ -10,15 +10,33 @@
 </head>
 <body>
 
-    <form action="#">
-        <input type="text" id="author" placeholder="Author">
-        <input type="text" id="title" placeholder="Title">
-        <input type="text" id="pages" placeholder="Pages">
-        <input type="text" id="read" placeholder="Read">
-        <button onclick="addBookToLibrary()">Submit</button>
-    </form>
+    <div class="container">
 
-    <div class="card-container"></div>
+    <div class="header">
+
+        <button onclick="displayModal()" id="myBtn">Add Book</button>
+
+
+    </div>
+
+    <div class="display-container"> 
+
+        <div class="card-container"></div>
+ 
+        <dialog class="modal">
+            <button onclick="closeModal()" class="close">x</button>
+            <form class="form" method="dialog">
+            <input type="text" id="author" placeholder="Author" required>
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="pages" placeholder="Pages" required>
+            <input type="text" id="read" placeholder="Read">
+            <button onclick="addBookToLibrary()" id="submit">Submit</button>
+        </form>
+        </dialog>
+       
+    </div>
+
+</div>
 
     
 </body>
