@@ -12,7 +12,6 @@ function Book(title, author, pages, read) {
 
 // Add book to library array
 function addBookToLibrary() {
-    modal.style.display = "none";
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
@@ -36,10 +35,15 @@ function displayObject() {
 
 function displayModal() {
     modal.style.display = "block"
+    title.value = ""
+    author.value = ""
+    pages.value = ""
+
 }
 
 function closeModal() {
     modal.style.display = "none"
 }
+
 
 
