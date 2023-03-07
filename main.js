@@ -37,6 +37,7 @@ function displayObject() {
     cardCont.appendChild(para);
 }
 
+// Display Modal
 function displayModal() {
     modal.style.display = "block"
     container.style.opacity = "0.2"
@@ -46,10 +47,23 @@ function displayModal() {
 
 }
 
+// Close Modal
 function closeModal() {
     container.style.opacity ="1"
     modal.style.display = "none"
 }
+
+function toggleRead() {
+    const read = document.getElementById("read");
+    if(read.value == 'Not read') {
+        read.value = 'Read';
+        read.style.background = 'lightgreen'
+    } else if(read.value == 'Read') {
+        read.value = "Not read"
+        read.style.background = 'lightcoral'
+    }
+}
+
 
 
 

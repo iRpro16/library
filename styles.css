@@ -144,3 +144,16 @@
     border: 2px solid white;
     border-radius: 3px;
 }
+
+#read {
+    background: lightcoral;
+    height: 25px;
+    width: 150px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.not-read {
+    background-color: lightgreen;
+}
+
