@@ -39,6 +39,8 @@ function displayObject() {
         card.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>`;
         toggleBtn.innerHTML = 'Not read';
         remove.innerHTML = 'Remove';
+
+        // Remove card from array
         const index = myLibrary.indexOf(book)
         remove.addEventListener('click', () => {
             myLibrary.splice(index,1);
@@ -63,7 +65,6 @@ function displayObject() {
             card.style.borderTop = '8px solid lightcoral'
         }
     })
-    console.log(myLibrary)
 }
 
 // Display Modal
