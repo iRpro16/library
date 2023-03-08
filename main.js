@@ -32,14 +32,23 @@ function displayObject() {
     toggleBtn.classList.add('toggle-btn');
     const card = document.createElement("div");
     card.classList.add('card');
+    const remove = document.createElement('button');
+    remove.classList.add('remove');
 
     for (let book of myLibrary) {
-        card.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>` 
-        toggleBtn.innerHTML = 'Not read'
+        card.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>`;
+        toggleBtn.innerHTML = 'Not read';
+        remove.innerHTML = 'Remove';
+        const index = myLibrary.indexOf(book)
+        remove.addEventListener('click', () => {
+            myLibrary.splice(index,1);
+            card.remove()
+        })
     };
 
     cardCont.appendChild(card);
     card.appendChild(toggleBtn);
+    card.appendChild(remove);
     card.style.borderTop = '8px solid lightcoral'
 
     toggleBtn.addEventListener('click', () => {
@@ -54,6 +63,7 @@ function displayObject() {
             card.style.borderTop = '8px solid lightcoral'
         }
     })
+    console.log(myLibrary)
 }
 
 // Display Modal
@@ -70,8 +80,3 @@ function closeModal() {
     container.style.opacity ="1"
     modal.style.display = "none"
 }
-
-
-
-
-
