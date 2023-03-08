@@ -5,11 +5,10 @@ const modal = document.querySelector('.modal');
 const container = document.querySelector('.container');
 
 // Book Constructor 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.read = read
 }
 
 // Add book to library array
@@ -17,9 +16,8 @@ function addBookToLibrary() {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').value;
 
-    let newBook = new Book(title, author, pages, read);
+    let newBook = new Book(title, author, pages);
     myLibrary.push(newBook);
 
     if (title !== "" && author !== "" && pages !== "" ) displayObject();
@@ -29,12 +27,33 @@ function addBookToLibrary() {
 function displayObject() {
     modal.style.display = "none"
     container.style.opacity = "1"
-    const para = document.createElement("div");
-    para.classList.add('card');
+   
+    const toggleBtn = document.createElement('button');
+    toggleBtn.classList.add('toggle-btn');
+    const card = document.createElement("div");
+    card.classList.add('card');
+
     for (let book of myLibrary) {
-        para.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>`
+        card.innerHTML = `<p>${book.title}</p>` +`<p>${book.author}</p>` + `<p>${book.pages}</p>` 
+        toggleBtn.innerHTML = 'Not read'
     };
-    cardCont.appendChild(para);
+
+    cardCont.appendChild(card);
+    card.appendChild(toggleBtn);
+    card.style.borderTop = '8px solid lightcoral'
+
+    toggleBtn.addEventListener('click', () => {
+        if(toggleBtn.innerHTML == 'Not read') {
+            toggleBtn.innerHTML = 'Read';
+            toggleBtn.style.background = 'lightgreen'
+            card.style.borderTop = '8px solid lightgreen'
+    
+        } else if(toggleBtn.innerHTML == 'Read') {
+            toggleBtn.innerHTML = "Not read"
+            toggleBtn.style.background = 'lightcoral'
+            card.style.borderTop = '8px solid lightcoral'
+        }
+    })
 }
 
 // Display Modal
@@ -44,7 +63,6 @@ function displayModal() {
     title.value = ""
     author.value = ""
     pages.value = ""
-
 }
 
 // Close Modal
@@ -53,16 +71,6 @@ function closeModal() {
     modal.style.display = "none"
 }
 
-function toggleRead() {
-    const read = document.getElementById("read");
-    if(read.value == 'Not read') {
-        read.value = 'Read';
-        read.style.background = 'lightgreen'
-    } else if(read.value == 'Read') {
-        read.value = "Not read"
-        read.style.background = 'lightcoral'
-    }
-}
 
 
 

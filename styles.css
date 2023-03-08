@@ -42,6 +42,8 @@
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     border-radius: 7px;
+    justify-content: center;
+    font-weight: 700;
 }
 
 .modal {
@@ -114,7 +116,13 @@
     color: white;
     border-radius: 4px;
     font-size: 1.1em;
-    margin-top: 15px;
+    margin-top: 40px;
+}
+
+.add:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
 }
 
 #modal {
@@ -148,12 +156,13 @@
 
 .toggle-btn {
     background: lightcoral;
-    height: 25px;
+    height: 40px;
     width: 150px;
     align-self: center;
-    margin-top: 10px;
+    margin-top: 30px;
     border: none;
     border-radius: 5px;
+    font-weight: 700;
 }
 
 
