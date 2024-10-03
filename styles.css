@@ -53,3 +53,11 @@ body {
     background-color: black;
     color: white;
 }
+
+#status {
+    background-color: #FFCCCB; 
+}
+
+#status:hover, #confirmBtn:hover, .add-book:hover {
+    cursor: pointer;
+}
