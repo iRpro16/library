@@ -7,6 +7,7 @@ const authorName =  document.getElementById('author');
 const titleBook = document.getElementById('title');
 const numPages = document.getElementById('numPages');
 const statusBook = document.getElementById('status');
+const cardCont = document.querySelector(".card-cont");
 
 // Constructor for books
 function Book(author, title, pages, status) {
@@ -26,13 +27,13 @@ function addBookToLibrary() {
 
 // Create book 
 function createBook() {
-    const cardCont = document.querySelector(".card-cont");
     myLibrary.forEach((book, index) => {
         if (index === myLibrary.length - 1) {
+            book.id = index;
             const newCard = document.createElement('div');
             newCard.classList.add('book-card');
+            newCard.id = index;
             cardCont.append(newCard);
-            cardCont.id = index;
 
             // Get book properties
             const cardTitle = book.title;
@@ -68,7 +69,6 @@ function createBook() {
                 pagesElement
             )
 
-            
             // Read button
             const cardStatusBtn = document.createElement('button');
             cardStatusBtn.classList.add('card-stat-button');
@@ -81,9 +81,10 @@ function createBook() {
             const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('delete-btn');
             deleteBtn.innerHTML = 'Delete';
+            deleteBtn.id = index;
+            deleteBtn.addEventListener('click', deleteCard)
             deleteBtnCont.append(deleteBtn);
             cardBody.append(deleteBtnCont);
-            
         }
     })
     
@@ -105,4 +106,15 @@ function clearVars() {
     authorName.value = '';
     titleBook.value = '';
     numPages.value = '';
+}
+
+function deleteCard(event) {
+    const cards = document.querySelectorAll('.book-card');
+    cards.forEach((card) => {
+        if (event.target.id === card.id) {
+            cardCont.removeChild(card);
+            myLibrary.splice(event.target.id, 1)
+        }
+    })
+    console.log(myLibrary);
 }
