@@ -42,6 +42,7 @@ body {
 
 /* Main content */
 .main-content {
+    display: grid;
     height: 80%;
 }
 
@@ -54,9 +55,8 @@ body {
     color: white;
 }
 
-#status {
-    background-color: #FFCCCB; 
-}
+
+/* Modal */
 
 #status:hover, #confirmBtn:hover, .add-book:hover {
     cursor: pointer;

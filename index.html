@@ -25,8 +25,11 @@
                     <input type="number" id="numPages" name="numPages">
                 </div>
                 <div>
-                    <label for="status">Read: </label>
-                    <input type="button" id="status" name="status" value="Not Read" onclick="toggleLabel()">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="read">Read</option>
+                        <option value="not read">Not Read</option>
+                    </select>
                 </div>
                 <button id="confirmBtn" value="default">Confirm</button>
             </form>
