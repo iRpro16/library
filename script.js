@@ -29,7 +29,6 @@ function addBookToLibrary() {
 function createBook() {
     myLibrary.forEach((book, index) => {
         if (index === myLibrary.length - 1) {
-            book.id = index;
             const newCard = document.createElement('div');
             newCard.classList.add('book-card');
             newCard.id = index;
@@ -60,9 +59,9 @@ function createBook() {
 
             // 
             if (cardStatus === "not read") {
-                newCard.style.borderLeft = "10px solid #FFCCCB"
+                newCard.style.borderLeft = "10px solid red"
             } else {
-                newCard.style.borderLeft = "10px solid lightgreen";
+                newCard.style.borderLeft = "10px solid green";
             }
             cardBody.append(
                 authorElement,
@@ -81,8 +80,7 @@ function createBook() {
             const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('delete-btn');
             deleteBtn.innerHTML = 'Delete';
-            deleteBtn.id = index;
-            deleteBtn.addEventListener('click', deleteCard)
+            deleteBtn.addEventListener('click', deleteCard);
             deleteBtnCont.append(deleteBtn);
             cardBody.append(deleteBtnCont);
         }
@@ -108,13 +106,22 @@ function clearVars() {
     numPages.value = '';
 }
 
-function deleteCard(event) {
+function deleteCard(e) {
+    // Get the card ID (as a number)
+    let cardId = parseInt(e.target.closest('.book-card').id);
+
+    // Find the corresponding card element
+    const cardEl = e.target.closest('.book-card');
+
+    // Ensure cardEl is a child of cardCont before removing
+    if (cardEl && cardCont.contains(cardEl)) {
+        cardCont.removeChild(cardEl);
+        myLibrary.splice(cardId, 1);
+    }
+
+    // Reassign IDs for the remaining cards
     const cards = document.querySelectorAll('.book-card');
-    cards.forEach((card) => {
-        if (event.target.id === card.id) {
-            cardCont.removeChild(card);
-            myLibrary.splice(event.target.id, 1)
-        }
-    })
-    console.log(myLibrary);
+    cards.forEach((card, index) => {
+        card.id = index;
+    });
 }
