@@ -22,9 +22,20 @@ body {
     color: white;
 }
 
+.header-svg-cont {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / 3;
+}
+
+.library-svg {
+    width: 60px;
+}
+
 .header {
     text-align: center;
-    grid-column: 2 / 3;
 }
 
 .button-cont {
@@ -129,4 +140,25 @@ body {
 
 #status:hover, #confirmBtn:hover, .add-book:hover {
     cursor: pointer;
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#confirmBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
