@@ -57,11 +57,11 @@ function createBook() {
             const pagesElement = document.createElement('p');
             pagesElement.innerText = `# of Pages: ${cardPages} pages`;
 
-            // 
+            // Card status change
             if (cardStatus === "not read") {
-                newCard.style.borderLeft = "10px solid red"
+                newCard.style.borderLeft = "10px solid #FFCCCB";
             } else {
-                newCard.style.borderLeft = "10px solid green";
+                newCard.style.borderLeft = "10px solid lightgreen";
             }
             cardBody.append(
                 authorElement,
@@ -72,9 +72,15 @@ function createBook() {
             const cardStatusBtn = document.createElement('button');
             cardStatusBtn.classList.add('card-stat-button');
             cardStatusBtn.innerHTML = cardStatus;
+            setBtnColor(cardStatus, cardStatusBtn);
+            cardStatusBtn.addEventListener('click', switchStatus);
             cardBody.append(cardStatusBtn);
 
             // Delete button
+            const trash = document.createElement('img');
+            trash.setAttribute('src', 'svgs/delete.svg');
+            trash.setAttribute('height', '20');
+            trash.setAttribute('width', '20');
             const deleteBtnCont = document.createElement('div');
             deleteBtnCont.classList.add('delete-btn-cont');
             const deleteBtn = document.createElement('button');
@@ -82,6 +88,7 @@ function createBook() {
             deleteBtn.innerHTML = 'Delete';
             deleteBtn.addEventListener('click', deleteCard);
             deleteBtnCont.append(deleteBtn);
+            deleteBtn.append(trash);
             cardBody.append(deleteBtnCont);
         }
     })
@@ -124,4 +131,27 @@ function deleteCard(e) {
     cards.forEach((card, index) => {
         card.id = index;
     });
+}
+
+function switchStatus(e) {
+    let cardBordercolor = e.target.closest('.book-card');
+    let btnStat = e.target;
+
+    if (btnStat.innerHTML === 'read') {
+        cardBordercolor.style.borderLeft = '10px solid #FFCCCB';
+        btnStat.innerHTML = 'not read';
+        btnStat.style.backgroundColor = '#FFCCCB';
+    } else {
+        cardBordercolor.style.borderLeft = '10px solid lightgreen';
+        btnStat.innerHTML = 'read';
+        btnStat.style.backgroundColor = 'lightgreen';
+    }
+}
+
+function setBtnColor(status, btn) {
+    if (status === 'read') {
+        btn.style.backgroundColor = 'lightgreen';
+    } else {
+        btn.style.backgroundColor = '#FFCCCB';
+    }
 }
