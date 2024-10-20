@@ -9,12 +9,14 @@ const numPages = document.getElementById('numPages');
 const statusBook = document.getElementById('status');
 const cardCont = document.querySelector(".card-cont");
 
-// Constructor for books
-function Book(author, title, pages, status) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.status = status;
+// Class for books
+class Book {
+    constructor(author, title, pages, status) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.status = status;
+    }
 }
 
 // Push new books to array
